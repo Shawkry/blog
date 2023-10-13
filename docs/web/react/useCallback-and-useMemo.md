@@ -1,6 +1,6 @@
 ---
 id: useCallback-and-useMemo
-sidebar_position: 0
+sidebar_position: 1
 sidebar_label: useCallback和useMemo性能优化
 ---
 
