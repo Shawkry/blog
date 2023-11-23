@@ -2,6 +2,8 @@
 id: dependency-summary
 sidebar_position: 0
 sidebar_label: package.json 依赖总结
+description: package.json 依赖总结
+keywords: [dependencies、package.json依赖]
 ---
 
 # package.json 依赖总结
@@ -25,15 +27,15 @@ sidebar_label: package.json 依赖总结
 
 ### 2. 特性
 
-1. 如果用户显式依赖了核心库，则可以忽略各插件的 `peerDependencies` 声明；
-2. 如果用户没有显式依赖核心库，则按照插件 `peerDependencies` 中声明的版本将库安装到项目根目录中；
+1. 如果用户显式依赖了核心库，则可以忽略各插件的 `peerDependencies` 声明；
+2. 如果用户没有显式依赖核心库，则按照插件 `peerDependencies` 中声明的版本将库安装到项目根目录中；
 3. 当用户依赖的版本、各插件依赖的版本之间不相互兼容，会报错让用户自行修复；
 
 **举个栗子🌰：**
 
 1. 没使用`peerDependencies`项目helloWorld执行 npm i之后的目录结构：
 
-```json
+```
 .
 ├── helloWorld
 │   └── node_modules
@@ -48,19 +50,7 @@ sidebar_label: package.json 依赖总结
 
 2. 使用`peerDependencies`的目录结构：
 
-```json
-// helloWorld 的 pagage.json
-{
-  "dependencies": {
-    "dayjs": "1.0.1"
-  }
-}
-// ant-design 和 @ones-design的pagage.json
-{
-  "dependencies": {
-    "dayjs": "1.0.1"
-  }
-}
+```
 // helloWorld npm i 之后
 .
 ├── helloWorld
@@ -70,7 +60,25 @@ sidebar_label: package.json 依赖总结
 │       └── @ones-design
 ```
 
-注：*peerDependenciesMeta可以让宿主应用执行npm install即使没有相关依赖时，安装过程中也不会警告提醒*
+```json5
+// helloWorld 的 package.json
+{
+  dependencies: {
+    dayjs: "1.0.1",
+  },
+}
+```
+
+```json5
+// ant-design 和 @ones-design的package.json
+{
+  dependencies: {
+    dayjs: "1.0.1",
+  },
+}
+```
+
+注意：`peerDependenciesMeta`可以让宿主应用执行npm install即使没有相关依赖时，安装过程中也不会警告提醒
 
 ## 三、 相对使用频率较少的dependency
 
@@ -80,8 +88,6 @@ sidebar_label: package.json 依赖总结
 
 ```json
 {
-  "bundledDependencies": [
-    "react", "react-dom"
-  ],
+  "bundledDependencies": ["react", "react-dom"]
 }
 ```

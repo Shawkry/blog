@@ -2,6 +2,8 @@
 id: component-library-document
 sidebar_position: 3
 sidebar_label: 实现组件库文档
+description: 基于storybook实现组件库文档
+keywords: [组件库文档, storybook, react]
 ---
 
 # 实现组件库文档
@@ -15,11 +17,13 @@ storybook官方教程：https://storybook.js.org/docs/react/get-started/why-stor
 ## 初始化storybook
 
 在原先的elephant-design项目下运行
+
 ```shell
 npx storybook@latest init
 ```
 
 可以看到在src下新增了一个`stories`的目录，仓库文件目录如下：
+
 ```
 |-- .storybook
 |-- public
@@ -38,24 +42,23 @@ npx storybook@latest init
     |...
 ```
 
-
 ## storybook 组件文档内容结构
 
 了解了仓库文件目录，应该知道我们新编写的组件文档应该放置在stories目录中，而我们内容组件文档的内容按照约定的结构进行编写。
 
 - Meta 声明组件的定义
 - 前端组件描述
-    - Props说明
-    - 参数控制调试，如需数据源可结合Mock数据调试展示效果
+  - Props说明
+  - 参数控制调试，如需数据源可结合Mock数据调试展示效果
 - 前端组件数据源Provider
-    - Props说明
-    - 调试方式待定，需等待Provider实现完善后再更新
+  - Props说明
+  - 调试方式待定，需等待Provider实现完善后再更新
 - 工具库方法
-    - 方法参数定义和说明
-    - 结合参数和预定义的Mock数据，页面展示调用方法的运算结果
+  - 方法参数定义和说明
+  - 结合参数和预定义的Mock数据，页面展示调用方法的运算结果
 - 后端能力
-    - 方法的定义和参数说明
-    - 流程图/时序图说明，如果一个组件既有前端组件也有后端能力，时序图可以提升到顶层
+  - 方法的定义和参数说明
+  - 流程图/时序图说明，如果一个组件既有前端组件也有后端能力，时序图可以提升到顶层
 
 更多部分可以参考官方教程和初始化storybook自动生成的示例组件文档，使用组件请勿直接引用用src目录下的组件，因为直接这样引用的组件可能是未发布组件，需要引用npm上已经发布的组件
 
@@ -69,6 +72,7 @@ MDX语法高亮编辑器插件
 - WebStorm插件：[MDX](https://plugins.jetbrains.com/plugin/14944-mdx)
 
 以下是storybook提供的内置组件，我们通过内置组件快速生成展示和控制的内容：
+
 ### Meta
 
 ```
@@ -110,6 +114,7 @@ MDX语法高亮编辑器插件
 > args中定义初始值，在Controls可以修改为其他的值。
 
 `argTypes`：支持自定义Control的字段，storybook自动根据故事中的组件Props生成可控制字段，但是我们可以添加字段说明或覆盖默认生成的说明：
+
 ```
 <Story argTypes={{
     [fieldName]: {
@@ -134,39 +139,42 @@ MDX语法高亮编辑器插件
 
 字段解释：
 
-| 字段                         | 描述                                             | 可选值/类型      | 案例                                                               |
-|----------------------------|------------------------------------------------|-------------|------------------------------------------------------------------|
-| name                       | 属性的名称。                                         | string      | { label: { name: 'label' } }                                     |
-| type.required              | 将属性设置为可选或必需。                                   | boolean     | { label: { type: { required: true } }                            |
-| description                | 设置属性的 Markdown 描述。                             | string      | { label: { description: 'Something' } }                          |
-| table.type.summary         | 提供该类型的简短版本。                                    | string      | { label: { table: { type: { summary: 'a short summary' } }}}     |
-| table.type.detail          | 提供该类型的扩展版本。                                    | string      | { label: { table: { type: { detail: 'string' } }}}               |
-| table.defaultValue.summary | 提供默认值的简短版本。                                    | string      | { label: { table: { defaultValue: { summary: 'Hello World' } }}} |
-| table.defaultValue.detail  | 提供更长版本的默认值。                                    | string      | { label: { table: { defaultValue: { detail: 'Something' } }}}    |
-| table.category             | 提供字段在表格中是否放置在单独分类下，默认是无分类                      | string      | { label: { table: { category: 'Event'}}}                         |
-| control                    | 关联属性的控件类型。 可帮助控制值进行组件调试。更多配置查看以下的ControlType可选 | ControlType | { label: { control: { type: 'text'} } }                          |
+| 字段                         | 描述                                             | 可选值/类型      | 案例                                                                       |
+|----------------------------|------------------------------------------------|-------------|--------------------------------------------------------------------------|
+| name                       | 属性的名称。                                         | string      | \{ label: \{ name: 'label' \} \}                                         |
+| type.required              | 将属性设置为可选或必需。                                   | boolean     | \{ label: \{ type: \{ required: true \} \}                               |
+| description                | 设置属性的 Markdown 描述。                             | string      | \{ label: \{ description: 'Something' \} \}                              |
+| table.type.summary         | 提供该类型的简短版本。                                    | string      | \{ label: \{ table: \{ type: \{ summary: 'a short summary' \} \}\}\}     |
+| table.type.detail          | 提供该类型的扩展版本。                                    | string      | \{ label: \{ table: \{ type: \{ detail: 'string' \} \}\}\}               |
+| table.defaultValue.summary | 提供默认值的简短版本。                                    | string      | \{ label: \{ table: \{ defaultValue: \{ summary: 'Hello World' \} \}\}\} |
+| table.defaultValue.detail  | 提供更长版本的默认值。                                    | string      | \{ label: \{ table: \{ defaultValue: \{ detail: 'Something' \} \}\}\}    |
+| table.category             | 提供字段在表格中是否放置在单独分类下，默认是无分类                      | string      | \{ label: \{ table: \{ category: 'Event'\}\}\}                           |
+| control                    | 关联属性的控件类型。 可帮助控制值进行组件调试。更多配置查看以下的ControlType可选 | ControlType | \{ label: \{ control: \{ type: 'text'\} \} \}                            |
 
-Props属性的type与控件可选类型的定义
+Props属性的type与控件可选类型的定义：
 
-| props属性类型    | control控件可选类型                                  | 描述                                                                                        | 案例                                                                              |
-|--------------|------------------------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| boolean      | boolean                                        | 提供一个Switch控件切换状态。                                                                         | argTypes: { active: { control: 'boolean' }}                                     |
-| number       | number                                         | 提供一个数字输入框控件来控制，还可以给控件设置范围和步长。                                                             | argTypes: { even: { control: { type: 'number', min:1, max:30, step: 2 } }}      |
-| range        | 提供一个Slider滑动条控件来控制数值。                          | argTypes: { odd: { control: { type: 'range', min: 1, max: 30, step: 3 } }}                |                                                                                 |
-| object       | object                                         | 提供一个多行文本框，输入内容是需要满足JSON规范。                                                                | argTypes: { user: { control: 'object' }}                                        |
-| array        | object                                         | 提供一个多行文本框，输入内容是需要满足JSON规范，用户输入约定输入数组。                                                     | argTypes: { odd: { control: 'object' }}                                         |
-| file         | 提供一个文件控件，选择后会返回文件blob URL列表，还可自定义文件类型。         | argTypes: { avatar: { control: { type: 'file', accept: '.png' } }}                        |                                                                                 |
-| enum         | radio                                          | 提供一个单选radio控件，通过options提供可选值。                                                             | argTypes: { contact: { control: 'radio', options: ['email', 'phone', 'mail'] }} |
-| inline-radio | 与radio一样，只是单选项布局是inline。                       | argTypes: { contact: { control: 'inline-radio', options: ['email', 'phone', 'mail'] }}    |                                                                                 |
-| check        | 提供一个多选check控件，通过options提供可选值。                  | argTypes: { contact: { control: 'check', options: ['email', 'phone', 'mail'] }}           |                                                                                 |
-| inline-check | 与check一样，只是单选项布局是inline。                       | argTypes: { contact: { control: 'inline-check', options: ['email', 'phone', 'mail'] }}    |                                                                                 |
-| select       | 提供一个下拉列表单选控件，通过options提供可选值。                   | argTypes: { age: { control: 'select', options: [20, 30, 40, 50] }}                        |                                                                                 |
-| multi-select | 提供一个下拉列表多选控件，通过options提供可选值。                   | argTypes: { countries: { control: 'multi-select', options: ['USA', 'Canada', 'Mexico'] }} |                                                                                 |
-| string       | text                                           | 提供一个文本输入框                                                                                 | argTypes: { label: { control: 'text' }}                                         |
-| color        | 提供一个颜色选择器控件，用于选择颜色的字符串值，通过presetColors 提供预设可选。 | argTypes: { color: { control: { type: 'color', presetColors: ['red', 'green']} }}         |                                                                                 |
-| date         | 提供一个日期选择控件，选择一个毫秒时间戳值                          | argTypes: { startDate: { control: 'date' }}                                               |                                                                                 |
+| props属性类型 | control控件可选类型 | 描述                                                                            | 案例                                                                                            |
+| ------------- | ------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --- |
+| boolean       | boolean             | 提供一个Switch控件切换状态。                                                    | argTypes: \{ active: \{ control: 'boolean' \}\}                                                 |
+| number        | number              | 提供一个数字输入框控件来控制，还可以给控件设置范围和步长。                      | argTypes: \{ even: \{ control: \{ type: 'number', min:1, max:30, step: 2 \} \}\}                |
+|               | range               | 提供一个Slider滑动条控件来控制数值。                                            | argTypes: \{ odd: \{ control: \{ type: 'range', min: 1, max: 30, step: 3 \} \}\}                |     |
+| object        | object              | 提供一个多行文本框，输入内容是需要满足JSON规范。                                | argTypes: \{ user: \{ control: 'object' \}\}                                                    |
+| array         | object              | 提供一个多行文本框，输入内容是需要满足JSON规范，用户输入约定输入数组。          | argTypes: \{ odd: \{ control: 'object' \}\}                                                     |
+|               | file                | 提供一个文件控件，选择后会返回文件blob URL列表，还可自定义文件类型。            | argTypes: \{ avatar: \{ control: \{ type: 'file', accept: '.png' \} \}\}                        |     |
+| enum          | radio               | 提供一个单选radio控件，通过options提供可选值。                                  | argTypes: \{ contact: \{ control: 'radio', options: \['email', 'phone', 'mail'\] \}\}           |
+|               | inline-radio        | 与radio一样，只是单选项布局是inline。                                           | argTypes: \{ contact: \{ control: 'inline-radio', options: \['email', 'phone', 'mail'\] \}\}    |     |
+|               | check               | 提供一个多选check控件，通过options提供可选值。                                  | argTypes: \{ contact: \{ control: 'check', options: \['email', 'phone', 'mail'\] \}\}           |     |
+|               | inline-check        | 与check一样，只是单选项布局是inline。                                           | argTypes: \{ contact: \{ control: 'inline-check', options: \['email', 'phone', 'mail'\] \}\}    |     |
+|               | select              | 提供一个下拉列表单选控件，通过options提供可选值。                               | argTypes: \{ age: \{ control: 'select', options: \[20, 30, 40, 50\] \}\}                        |     |
+|               | multi-select        | 提供一个下拉列表多选控件，通过options提供可选值。                               | argTypes: \{ countries: \{ control: 'multi-select', options: \['USA', 'Canada', 'Mexico'\] \}\} |     |
+| string        | text                | 提供一个文本输入框                                                              | argTypes: \{ label: \{ control: 'text' \}\}                                                     |
+|               | color               | 提供一个颜色选择器控件，用于选择颜色的字符串值，通过presetColors 提供预设可选。 | argTypes: \{ color: \{ control: \{ type: 'color', presetColors: \['red', 'green'\]\} \}\}       |     |
+|               | date                | 提供一个日期选择控件，选择一个毫秒时间戳值                                      | argTypes: \{ startDate: \{ control: 'date' \}\}                                                 |     |
+
+更多参考：https://storybook.js.org/docs/react/essentials/controls
 
 ### Canvas
+
 用于包裹Story，生成一个可查看代码的故事
 
 ```
@@ -202,7 +210,6 @@ Props属性的type与控件可选类型的定义
 若故事使用动态参数，则表格中的有一列Control，可控制故事的展示效果。
 
 使用说明更多描述：[https://storybook.js.org/docs/react/writing-docs/doc-block-argstable](https://storybook.js.org/docs/react/writing-docs/doc-block-argstable)
-
 
 ## 编写changelog
 
@@ -272,4 +279,3 @@ changelog 类型
 - docs: 文档相关
 - test: 测试相关
 - chore: 其他杂项
-

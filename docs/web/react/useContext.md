@@ -2,6 +2,8 @@
 id: useContext
 sidebar_position: 0
 sidebar_label: useContext 的使用优化
+description: useContext 的使用优化
+keywords: [useContext, React性能优化]
 ---
 
 # useContext 的使用优化
@@ -18,9 +20,9 @@ npx create-react-app my-app --template typescript && code my-app
 
 ```tsx
 root.render(
-//  <React.StrictMode>
-    <App />
-//  </React.StrictMode>
+  //  <React.StrictMode>
+  <App />,
+  //  </React.StrictMode>
 );
 ```
 
@@ -32,41 +34,40 @@ root.render(
 
 ```tsx
 // 创建context
-const MyContext = React.createContext<{[key: string]: any}>({})
+const MyContext = React.createContext<{ [key: string]: any }>({});
 export const ParentComp = React.memo(() => {
-    console.log("ParentComp, 渲染了");
-    const [value, setValue] = useState(0);
-    const setRandomData = useCallback(() => {
-        setValue(Math.random() * 10000);
-    }, []);
-    return (
-        <MyContext.Provider value={{ value, setRandomData }}>
-            <div>
-                ParentComp
-                <ChildComp1 />
-                <ChildComp2 />
-            </div>
-        </MyContext.Provider>
-    );
+  console.log("ParentComp, 渲染了");
+  const [value, setValue] = useState(0);
+  const setRandomData = useCallback(() => {
+    setValue(Math.random() * 10000);
+  }, []);
+  return (
+    <MyContext.Provider value={{ value, setRandomData }}>
+      <div>
+        ParentComp
+        <ChildComp1 />
+        <ChildComp2 />
+      </div>
+    </MyContext.Provider>
+  );
 });
 
 // 读取context数据
 export const ChildComp1 = React.memo(() => {
-    console.log("ChildComp1, 渲染了");
-    const { setRandomData } = useContext(MyContext);
-    return (
-        <div>
-            child1, <button onClick={setRandomData}>按钮</button>
-        </div>
-    );
+  console.log("ChildComp1, 渲染了");
+  const { setRandomData } = useContext(MyContext);
+  return (
+    <div>
+      child1, <button onClick={setRandomData}>按钮</button>
+    </div>
+  );
 });
 
 export const ChildComp2 = React.memo(() => {
-    console.log("ChildComp2, 渲染了");
-    const { value } = useContext(MyContext);
-    return <div>child2, {value}</div>;
+  console.log("ChildComp2, 渲染了");
+  const { value } = useContext(MyContext);
+  return <div>child2, {value}</div>;
 });
-
 ```
 
 **结果**
@@ -83,12 +84,13 @@ ChildComp2, 渲染了
 但实际上ChildComp1只是使用上下文中的方法，该方法不变所以并不需要重新渲染，这是无效渲染可以优化的。
 
 **分析原因**
+
 ```shell
-点击触发onClick事件 
--> setRandomData触发 
-—> setValue(setState) 
-—> ParentComp重新渲染 
-—> MyContext.Provider的value变更 
+点击触发onClick事件
+-> setRandomData触发
+—> setValue(setState)
+—> ParentComp重新渲染
+—> MyContext.Provider的value变更
 —> 每一个子组件因为使用useContext(MyContext)都将触发重渲染
 ```
 
@@ -103,20 +105,20 @@ ChildComp2, 渲染了
 ```tsx
 // 读取context数据
 export const ChildComp1 = React.memo(
-    ({ setRandomData }: { setRandomData: () => void }) => {
-        console.log("ChildComp1, 渲染了");
-        return (
-            <div>
-                child1, <button onClick={setRandomData}>按钮</button>
-            </div>
-        );
-    }
+  ({ setRandomData }: { setRandomData: () => void }) => {
+    console.log("ChildComp1, 渲染了");
+    return (
+      <div>
+        child1, <button onClick={setRandomData}>按钮</button>
+      </div>
+    );
+  },
 );
 
 const ChildComp1Data = React.memo(() => {
-    const { setRandomData } = useContext(MyContext);
-    console.log("ChildComp1Data, 渲染了");
-    return <ChildComp1 setRandomData={setRandomData} />;
+  const { setRandomData } = useContext(MyContext);
+  console.log("ChildComp1Data, 渲染了");
+  return <ChildComp1 setRandomData={setRandomData} />;
 });
 ```
 
@@ -145,38 +147,38 @@ const MethodContext = React.createContext<() => void>(() => {});
 
 // 设置context数据
 export const ParentComp = React.memo(() => {
-    console.log("ParentComp, 渲染了");
-    const [value, setValue] = useState(0);
-    const setRandomData = useCallback(() => {
-        setValue(Math.random() * 10000);
-    }, []);
-    return (
-        <MethodContext.Provider value={setRandomData}>
-            <ValueContext.Provider value={value}>
-                <div>
-                    ParentComp
-                    <ChildComp1 />
-                    <ChildComp2 />
-                </div>
-            </ValueContext.Provider>
-        </MethodContext.Provider>
-    );
+  console.log("ParentComp, 渲染了");
+  const [value, setValue] = useState(0);
+  const setRandomData = useCallback(() => {
+    setValue(Math.random() * 10000);
+  }, []);
+  return (
+    <MethodContext.Provider value={setRandomData}>
+      <ValueContext.Provider value={value}>
+        <div>
+          ParentComp
+          <ChildComp1 />
+          <ChildComp2 />
+        </div>
+      </ValueContext.Provider>
+    </MethodContext.Provider>
+  );
 });
 
 // 读取context数据
 export const ChildComp1 = React.memo(() => {
-    console.log("ChildComp1, 渲染了");
-    const setRandomData = useContext(MethodContext);
-    return (
-        <div>
-            child1, <button onClick={setRandomData}>按钮</button>
-        </div>
-    );
+  console.log("ChildComp1, 渲染了");
+  const setRandomData = useContext(MethodContext);
+  return (
+    <div>
+      child1, <button onClick={setRandomData}>按钮</button>
+    </div>
+  );
 });
 export const ChildComp2 = React.memo(() => {
-    console.log("ChildComp2, 渲染了");
-    const value = useContext(ValueContext);
-    return <div>child2, {value}</div>;
+  console.log("ChildComp2, 渲染了");
+  const value = useContext(ValueContext);
+  return <div>child2, {value}</div>;
 });
 ```
 
@@ -184,6 +186,7 @@ export const ChildComp2 = React.memo(() => {
 
 **结果**
 点击"按钮"后，浏览器控制台的输出结果：
+
 ```
 ParentComp, 渲染了
 ChildComp2, 渲染了
@@ -208,59 +211,62 @@ const MethodContext = React.createContext<{ [key: string]: any }>({});
 
 // 设置context数据
 export const ParentComp = React.memo(() => {
-    console.log("ParentComp, 渲染了");
-    const [value, setValue] = useState(0);
-    const setRandomData = useCallback(() => {
-        setValue(Math.random() * 10000);
-    }, []);
-    const resetData = useCallback(() => {
-        setValue(0);
-    }, []);
-    const ref = useRef({});
-    useEffect(() => {
-        ref.current = {
-            setRandomData,
-            resetData,
-        };
-    }, [setRandomData, resetData]);
-    return (
-        <MethodContext.Provider value={ref}>
-            <ValueContext.Provider value={value}>
-                <div>
-                    ParentComp
-                    <ChildComp1 />
-                    <ChildComp2 />
-                </div>
-            </ValueContext.Provider>
-        </MethodContext.Provider>
-    );
+  console.log("ParentComp, 渲染了");
+  const [value, setValue] = useState(0);
+  const setRandomData = useCallback(() => {
+    setValue(Math.random() * 10000);
+  }, []);
+  const resetData = useCallback(() => {
+    setValue(0);
+  }, []);
+  const ref = useRef({});
+  useEffect(() => {
+    ref.current = {
+      setRandomData,
+      resetData,
+    };
+  }, [setRandomData, resetData]);
+  return (
+    <MethodContext.Provider value={ref}>
+      <ValueContext.Provider value={value}>
+        <div>
+          ParentComp
+          <ChildComp1 />
+          <ChildComp2 />
+        </div>
+      </ValueContext.Provider>
+    </MethodContext.Provider>
+  );
 });
 
 // 读取context数据
 export const ChildComp1 = React.memo(() => {
-    console.log("ChildComp1, 渲染了");
-    const context = useContext(MethodContext);
-    const setRandomData = () => {
-        const setRandomData = context.current.setRandomData;
-        setRandomData();
-    };
-    return (
-        <div>
-            child1, <button onClick={setRandomData}>按钮</button>
-        </div>
-    );
+  console.log("ChildComp1, 渲染了");
+  const context = useContext(MethodContext);
+  const setRandomData = () => {
+    const setRandomData = context.current.setRandomData;
+    setRandomData();
+  };
+  return (
+    <div>
+      child1, <button onClick={setRandomData}>按钮</button>
+    </div>
+  );
 });
 export const ChildComp2 = React.memo(() => {
-    console.log("ChildComp2, 渲染了");
-    const value = useContext(ValueContext);
-    return <div>child2, {value}</div>;
+  console.log("ChildComp2, 渲染了");
+  const value = useContext(ValueContext);
+  return <div>child2, {value}</div>;
 });
 ```
+
 **结果**
+
 ```
 ParentComp, 渲染了
 ChildComp2, 渲染了
 ```
+
 ChildComp1不会被渲染
 
 **问题**
@@ -274,7 +280,7 @@ ChildComp1不会被渲染
 我们使用Redux能解决这个问题，当然，如果使用Redux我们就不需要使用useContext了，这篇文章就没必要存在了🐶，
 对于小规模的系统，但是想实现组件间的共享，我们现在可以引出本文的另外一位主角：useReducer。
 
-## 改进方案四*：结合useReducer
+## 改进方案四\*：结合useReducer
 
 结合useReducer使用，reducer就是一个迷你Redux，数据触发和Redux很类似。
 
@@ -291,7 +297,7 @@ ChildComp1不会被渲染
 ```tsx
 import React, { useContext, useReducer } from "react";
 interface ValueType {
-    count: number;
+  count: number;
 }
 // 创建context
 const ValueContext = React.createContext<ValueType>({ count: 0 });
@@ -299,66 +305,69 @@ const MethodContext = React.createContext<any>({});
 
 // 设置context数据
 export const ParentComp = React.memo(() => {
-    console.log("ParentComp, 渲染了");
-    const [value, dispatch] = useReducer(
-        (preState: ValueType, { type }: { type: string }) => {
-            switch (type) {
-                case "setRandomData":
-                    return {
-                        ...preState,
-                        count: Math.random() * 10000,
-                    };
-                case "addData":
-                    return {
-                        ...preState,
-                        count: preState.count + 1,
-                    };
-                case "resetData":
-                    return {
-                        ...preState,
-                        count: 0,
-                    };
-            }
-        },
-        { count: 0 }
-    );
-    return (
-        <MethodContext.Provider value={dispatch}>
-            <ValueContext.Provider value={value}>
-                <div>
-                    ParentComp
-                    <ChildComp1 />
-                    <ChildComp2 />
-                </div>
-            </ValueContext.Provider>
-        </MethodContext.Provider>
-    );
+  console.log("ParentComp, 渲染了");
+  const [value, dispatch] = useReducer(
+    (preState: ValueType, { type }: { type: string }) => {
+      switch (type) {
+        case "setRandomData":
+          return {
+            ...preState,
+            count: Math.random() * 10000,
+          };
+        case "addData":
+          return {
+            ...preState,
+            count: preState.count + 1,
+          };
+        case "resetData":
+          return {
+            ...preState,
+            count: 0,
+          };
+      }
+    },
+    { count: 0 },
+  );
+  return (
+    <MethodContext.Provider value={dispatch}>
+      <ValueContext.Provider value={value}>
+        <div>
+          ParentComp
+          <ChildComp1 />
+          <ChildComp2 />
+        </div>
+      </ValueContext.Provider>
+    </MethodContext.Provider>
+  );
 });
 
 // 读取context数据
 export const ChildComp1 = React.memo(() => {
-    console.log("ChildComp1, 渲染了");
-    const dispatch = useContext(MethodContext);
-    const setRandomData = () => {
-        dispatch({ type: "setRandomData" });
-    };
-    return (
-        <div>
-            child1, <button onClick={setRandomData}>按钮</button>
-        </div>
-    );
+  console.log("ChildComp1, 渲染了");
+  const dispatch = useContext(MethodContext);
+  const setRandomData = () => {
+    dispatch({ type: "setRandomData" });
+  };
+  return (
+    <div>
+      child1, <button onClick={setRandomData}>按钮</button>
+    </div>
+  );
 });
 export const ChildComp2 = React.memo(() => {
-    console.log("ChildComp2, 渲染了");
-    const { count } = useContext(ValueContext);
-    return <div>child2, {count}</div>;
+  console.log("ChildComp2, 渲染了");
+  const { count } = useContext(ValueContext);
+  return <div>child2, {count}</div>;
 });
 ```
+
 **结果**
+
 ```
 ParentComp, 渲染了
 ChildComp2, 渲染了
 ```
+
 ChildComp1不会被渲染，而且一个上下文可以不断新增多个方法，比如上述例子中新增的addData、resetData。
 当然，定义很多方法时候，可以自行抽离方法，不需要把所有的逻辑代码都直接写在reducer中。
 

@@ -2,15 +2,16 @@
 id: vlan-macos
 sidebar_position: 1
 sidebar_label: Mac 客户端搭建
+description: Mac 客户端搭建
+keywords: [虚拟局域网, 游戏联机, N2N]
 ---
 
 # Mac 客户端搭建
 
 > 推荐安装版本：N2N V3
-> 
+>
 > 大体分为三个部分：N2N的编译、系统扩展授权和tun/tap安装
-tun/tap不再维护，Apple Chip无法正常安装，使用Tunnelblick创建内核扩展解决这个问题
-
+> tun/tap不再维护，Apple Chip无法正常安装，使用Tunnelblick创建内核扩展解决这个问题
 
 ## 使用brew安装相关必要工具
 
@@ -153,4 +154,4 @@ sudo lsof edge
 ping 192.168.66.1
 ```
 
-## 🚧 实现一个脚本，简化流程
+## 🚧 实现一个脚本，简化流程

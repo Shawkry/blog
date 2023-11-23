@@ -2,6 +2,8 @@
 id: knowledge-expansion
 sidebar_position: 2
 sidebar_label: GraphQL 扩展
+description: GraphQL语法介绍
+keywords: [GraphQL, GraphQL使用，GraphQL语法介绍]
 ---
 
 # GraphQL 扩展
@@ -22,7 +24,8 @@ sidebar_label: GraphQL 扩展
 
 filter后是筛选条件组的数据，其类型是Filter ，可以在对象中加入多个条件，所有条件都以 and 的方式计算，即所有条件均满足才返回。
 
-**筛选条件是树状结构，最后一级的键是筛选叶节点字段+操作符，值是字段需要匹配内容，其中，筛选字段和操作符直接用下划线(_)连接，例如🌰：filter:{uuid_equal:"xxx",name_in:["A","B"]}**。
+**筛选条件是树状结构，最后一级的键是筛选叶节点字段+操作符，值是字段需要匹配内容，其中，筛选字段和操作符直接用下划线(_)连接**
+例如🌰：`filter:{uuid_equal:"xxx",name_in:["A","B"]}`。
 
 ### 操作符
 

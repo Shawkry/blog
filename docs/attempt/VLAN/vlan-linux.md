@@ -2,6 +2,8 @@
 id: vlan-linux
 sidebar_position: 0
 sidebar_label: Linux 服务端搭建
+description: Linux 服务端搭建
+keywords: [虚拟局域网, 游戏联机, N2N]
 ---
 
 # Linux 服务端搭建

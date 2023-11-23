@@ -1,10 +1,12 @@
 ---
-id: 策略模式
+id: strategy-pattern
 sidebar_position: 0
-sidebar_label: 策略模式
+sidebar_label: strategy-pattern
+description: 策略模式
+keywords: [策略模式, strategy-pattern, 设计模式]
 ---
 
-# 策略模式
+# 策略模式（Strategy Pattern）
 
 > **定义：**定义一系列算法，把他们一个一个封装起来，并且使他们可以相互替换。
 

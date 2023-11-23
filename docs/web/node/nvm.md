@@ -2,20 +2,22 @@
 id: nvm
 sidebar_position: 1
 sidebar_label: 使用nvm进行node版本控制
+description: 使用nvm进行node版本控制
+keywords: [nvm、版本控制、node]
 ---
 
 # 使用nvm进行node版本控制
 
 ## 安裝 NVM
 
-可用 `cURL` 或 `wget`指令使用安装脚本安装或更新 nvm：
+可用 `cURL` 或 `wget` 指令使用安装脚本安装或更新 nvm：
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 ```
 
-此安装脚本会将 nvm repo clone 到 `~/.nvm`，并且将 source line 新增至你的 profile 设置 ( `~/.bash_profile`、`~/.zshrc`、`~/.profile` 或 `~/.bashrc` )：
+此安装脚本会将 nvm repo clone 到 `~/.nvm`，并且将 source line 新增至你的 profile 设置 ( `~/.bash_profile`、`~/.zshrc`、`~/.profile` 或 `~/.bashrc` )：
 
 ```bash
 export NVM_DIR="$HOME/.nvm"

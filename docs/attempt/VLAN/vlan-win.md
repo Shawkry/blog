@@ -2,6 +2,8 @@
 id: vlan-win
 sidebar_position: 1
 sidebar_label: Win 客户端搭建
+description:  Win 客户端搭建
+keywords: [虚拟局域网, 游戏联机, N2N]
 ---
 
 # Win 客户端搭建

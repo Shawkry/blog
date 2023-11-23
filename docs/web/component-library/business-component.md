@@ -2,6 +2,8 @@
 id: business-component
 sidebar_position: 1
 sidebar_label: 抽离业务组件
+description: 如何抽离业务组件
+keywords: [业务组件, 组件库, react]
 ---
 
 # 抽离业务组件
@@ -221,31 +223,34 @@ Many years later ～，就会在dist下输出一个index.es.js产物，此时的
 
 ## 添加类型提示
 
-没有类型提示的组件库，那是没有灵魂的，新增类型提示，方便组件使用者更好的引用组件以及debug。
+没有类型提示的组件库，那是没有灵魂的，新增类型提示，方便组件使用者更好引用组件以及debug。
 
-我们可以使用`rollup-plugin-dts-bundle-generator`这个库在打包的时候自动生成*.d.ts文件以实现类型提示。
+我们可以使用`rollup-plugin-dts-bundle-generator`这个库在打包的时候自动生成\*.d.ts文件以实现类型提示。
+
 ```shell
 npm i rollup-plugin-dts-bundle-generator -D
 ```
 
 修改rollup.config.js文件,新增generateDtsBundle
+
 ```js
-import { generateDtsBundle } from 'rollup-plugin-dts-bundle-generator'
+import { generateDtsBundle } from "rollup-plugin-dts-bundle-generator";
 export default [
-    {
-        input: "src/index.js",
-        plugins: [
-            // ...,
-            generateDtsBundle({
-                outFile: 'dist/types/index.d.ts',
-            }),
-            // ...,
-        ],
-    },
+  {
+    input: "src/index.js",
+    plugins: [
+      // ...,
+      generateDtsBundle({
+        outFile: "dist/types/index.d.ts",
+      }),
+      // ...,
+    ],
+  },
 ];
 ```
 
 修改package.json文件,新增「types」字段
+
 ```json
 {
   "module": "./dist/index.es.js",

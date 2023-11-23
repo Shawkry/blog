@@ -2,6 +2,8 @@
 id: npm-publish
 sidebar_position: 2
 sidebar_label: npm 发布和更新
+description: npm 发布和更新组件库
+keywords: [npm 发布和更新组件库, npm, 组件库, react]
 ---
 
 # npm 发布和更新
@@ -113,7 +115,7 @@ npm publish
 也可以直接手动更改`package.json`文件的*version*字段进行手动更新，再进行发布。
 
 ## 版本管理
-[npm verison](https://docs.npmjs.com/cli/v8/commands/npm-version)
+[npm version](https://docs.npmjs.com/cli/v8/commands/npm-version)
 
 npm的发包需要遵循语义化版本，一个版本号包含三个部分：MAJOR.MINOR.PATCH，
 
@@ -138,7 +140,7 @@ npm version major
 
 为了适应不同的模块系统，都需要将写好的内容打包。一般我们使用的包都要支持以下特性：
 
-- 不同的模块支持：针对不同的模块，打对应的包，然后进行相关的配置。`package.json`中有`main` `module` `unpkg`,分别支持设定 commonjs、esmodule 以及 umd。
+- 不同的模块支持：针对不同的模块，打对应的包，然后进行相关的配置。`package.json`中有`main` `module` `unpkg`,分别支持设定 commonjs、ESM 以及 umd。
 - 类型提示：打包时，生成类型声明文件`d.ts`，并且配置`package.json`中的`typings`字段。
 - 按需加载：按需加载是在 babel 编译过程中，按需引入相关代码。借助 babel 的插件`babel-plugin-import`，将不同的组件或者函数拆分开。
 - 支持 Tree Shaking：Tree Shaking 是在 webpack 打包阶段，移除不相关的 js 代码。只需配置好`package.json`的`sideEffects`字段。
