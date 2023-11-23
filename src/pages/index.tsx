@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout description="用技术让生活变得更简单。">
       <Head>
-        <title>彼得潘的永无岛</title>
+        <title>Shawkry 's blog</title>
       </Head>
       <main>
         <WelcomePage />

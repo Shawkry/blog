@@ -1,0 +1,33 @@
+.projectPage{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.header{
+  /*margin-top: 25px !important;*/
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+.header > h1{
+  /*text-align: center;*/
+  margin-top: 25px;
+}
+
+.header > .description{
+  /*text-align: center;*/
+  margin: 10px;
+}
+.header > button{
+ width: 100px;
+}
+.projectList{
+  margin: 0 auto 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  max-width: var(--ifm-container-width-xl);
+}
