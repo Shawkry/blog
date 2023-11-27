@@ -142,7 +142,6 @@ const config = {
   plugins: [
     "docusaurus-plugin-image-zoom",
     path.resolve(__dirname, "./src/plugin/plugin-baidu-analytics"),
-    path.resolve(__dirname, "./src/plugin/plugin-baidu-push"),
     ["@docusaurus/plugin-ideal-image", { disableInDev: false }],
   ],
 };
