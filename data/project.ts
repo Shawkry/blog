@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: "Blog",
     description: "📖 基于 Docusaurus 实现个人博客",
-    image: "/img/project/blog.png",
+    image: "/img/project/blog.webp",
     website: "https://shawkry.top",
     source: "https://github.com/Shawkry/blog",
     tags: ["favorite", "react", "mobile"],
@@ -20,15 +20,15 @@ export const projects: Project[] = [
   {
     title: "TODO",
     description: "🧾 带有数据统计分析的 TODO 应用",
-    image: "/img/project/todo.png",
+    image: "/img/project/todo.webp",
     website: "https://shawkry.top/project/todo",
     source: "https://github.com/Shawkry/TODO",
     tags: ["favorite", "vue", "mobile", "product"],
   },
   {
     title: "Cloud",
-    description: "🏠 基于 nextcloud 实现的个人网盘",
-    image: "/img/project/cloud.png",
+    description: "☁️ 基于 nextcloud 实现的个人网盘",
+    image: "/img/project/cloud.webp",
     website: "https://www.shawkry.top:1443/",
     //source: "http://www.shawkry.top:8088/",
     tags: ["favorite", "mobile", "product"],
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     title: "Elephant-Design(开发中)",
     description: "🐘 基于 Ant-Design 封装的 React 组件库",
-    image: "/img/project/elephant-design.png",
+    image: "/img/project/elephant-design.webp",
     website: "https://www.npmjs.com/package/elephantd",
     source: "https://github.com/Shawkry/elephant-design",
     tags: ["favorite", "react"],
@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     title: "Serialport-Tool(开发中)",
     description: "🔌 用于调试串口的 electron 应用",
-    image: "/img/project/serialport-tool.png",
+    image: "/img/project/serialport-tool.webp",
     website: "https://github.com/Shawkry/serialport-tool",
     source: "https://github.com/Shawkry/serialport-tool",
     tags: ["favorite", "react"],
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Rail-Transit",
     description:
       "🚄 轨道交通大数据分析平台;获得大学生服务外包创新创业大赛国赛二等奖",
-    image: "/img/project/rail-transit.png",
+    image: "/img/project/rail-transit.webp",
     website: "https://shawkry.top/project/rail-transport",
     source: "https://github.com/Shawkry/rail-transit",
     tags: ["vue"],
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     title: "Covid-19(不再维护)",
     description:
       "😷 新冠疫情大数据分析可视化;获得计算机设计大赛国赛三等奖；由于疫情已成为历史，部分数据丢失",
-    image: "/img/project/covid-19.png",
+    image: "/img/project/covid-19.webp",
     website: "https://www.shawkry.top/project/covid-19/",
     source: "https://github.com/Shawkry/covid-19",
     tags: ["vue"],
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     title: "Christmas-Tree",
     description: "🎄 3D圣诞树（2021版）",
-    image: "/img/project/christmas-tree.png",
+    image: "/img/project/christmas-tree.webp",
     website: "https://shawkry.top/project/christmas-tree",
     source: "https://github.com/Shawkry/christmas-tree",
     tags: ["vue", "mobile"],
