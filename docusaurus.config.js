@@ -100,6 +100,11 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Shawkry, Inc. Built with Docusaurus.
         <a style='text-decoration:none' href='http://beian.miit.gov.cn'><div style='color:white'>粤ICP备2021117025号</div></a>`,
       },
+      algolia: {
+        appId: "YH555KDK65",
+        apiKey: "e44f5a1ae1c38e108b8af885803d4e18",
+        indexName: "shawkry",
+      },
       // prism: {
       //   theme: lightCodeTheme,
       //   darkTheme: darkCodeTheme,
@@ -112,15 +117,6 @@ const config = {
         },
       },
     }),
-  themes: [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        language: ["en", "zh"],
-      },
-    ],
-  ],
   presets: [
     [
       "classic",
