@@ -2,9 +2,10 @@
 id: analytics
 sidebar_position: 2
 sidebar_label: 网站运维分析工具介绍
+title: 网站运维分析工具介绍
 description: 网站运维分析工具介绍
 keywords:
-  [Google Analytics, Baidu Analytics, 个人网站的SEO优化, SEO, 搜索引擎优化]
+  [SEO, Google Analytics, Baidu Analytics]
 ---
 
 # 网站运维分析工具介绍

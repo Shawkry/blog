@@ -2,6 +2,7 @@
 id: component-library-introduction
 sidebar_position: 0
 sidebar_label: 前言
+title: 搭建组件库步骤
 description: 搭建组件库步骤
 keywords: [搭建组件库步骤, 组件库, react]
 ---

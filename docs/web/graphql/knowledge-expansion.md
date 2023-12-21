@@ -2,8 +2,9 @@
 id: knowledge-expansion
 sidebar_position: 2
 sidebar_label: GraphQL 扩展
+title: GraphQL语法介绍
 description: GraphQL语法介绍
-keywords: [GraphQL, GraphQL使用，GraphQL语法介绍]
+keywords: [GraphQL, GraphQL使用, GraphQL语法介绍]
 ---
 
 # GraphQL 扩展

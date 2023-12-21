@@ -2,7 +2,8 @@
 id: nas
 sidebar_position: 2
 sidebar_label: 搭建属于自己的云存储应用
-description: 搭建属于自己的云存储应用
+title: 搭建属于自己的云存储应用
+description: 基于nextcloud搭建属于自己的云存储应用
 keywords: [nextcloud, 个人云存储, 个人网盘]
 ---
 
@@ -59,8 +60,6 @@ sudo docker run -it -d -p8080:80 --name nextcloud --link mariadb --restart=alway
 # 检查
 docker ps
 ```
-
-![Untitled](images/Untitled.png)
 
 ## 初始化nextcloud
 

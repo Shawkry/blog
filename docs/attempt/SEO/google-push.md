@@ -2,8 +2,9 @@
 id: google-push
 sidebar_position: 0
 sidebar_label: Google 收录
+title: Google收录
 description: Google 收录
-keywords: [Google search console, 个人网站的SEO优化, SEO, 搜索引擎优化]
+keywords: [SEO, Google search console]
 ---
 
 # Google 收录
@@ -65,9 +66,9 @@ Search Console 是 Google 推出的一款工具，可以帮助任何拥有网站
    ![img.png](images/Untitled_4.png)
 
 如果不了解什么是sitemap.xml，可以查看Google的官方文档介绍，里面有详细的说明和如何创建的教程：[站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=zh-cn)
-
-注意⚠️：添加站点地图sitemap.xml是一定要完成的操作步骤，我最开始就以为非必要项没有提交，结果等了一个月网站还没被Google收录😭
-
+:::warning
+添加站点地图sitemap.xml是一定要完成的操作步骤，我最开始以为非必要项没有提交，结果等了一个月网站还没被Google收录😭
+:::
 四、等待🐶
 
 完成以上步骤基本上没有问题了，新域名大概需要一个星期或者更长的时间，届时Google会发邮箱到你所登陆的帐号，在这期间也可以自己验证网站是否被收录，参考：[验证网站是否被收录](#验证网站是否被收录)

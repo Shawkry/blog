@@ -2,8 +2,9 @@
 id: baidu-push
 sidebar_position: 1
 sidebar_label: Baidu 收录
+title: Baidu收录
 description: Baidu 收录
-keywords: [baidu收录, SEO, 搜索引擎优化]
+keywords: [SEO, baidu收录, 搜索引擎优化]
 ---
 
 # Baidu 收录

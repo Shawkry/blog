@@ -2,8 +2,9 @@
 id: netEase-to-apple
 sidebar_position: 0
 sidebar_label: 转移歌单到apple music
-description:  转移歌单到apple music
-keywords: [歌单迁移,tunemymusic, 网易云音乐, apple music]
+title:  转移歌单到apple music
+description: 转移歌单到apple music
+keywords: [歌单迁移, tunemymusic, 网易云音乐, apple music]
 ---
 
 # 转移歌单到apple music

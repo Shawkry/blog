@@ -2,8 +2,9 @@
 id: dependency-summary
 sidebar_position: 0
 sidebar_label: package.json 依赖总结
+title: package.json依赖总结
 description: package.json 依赖总结
-keywords: [dependencies、package.json依赖]
+keywords: [dependencies, package.json依赖]
 ---
 
 # package.json 依赖总结

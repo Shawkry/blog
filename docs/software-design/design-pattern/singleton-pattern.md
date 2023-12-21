@@ -1,9 +1,10 @@
 ---
 id: singleton-pattern
 sidebar_position: 1
-sidebar_label: singleton-pattern
+sidebar_label: 单例模式
+title: 单例模式
 description: 单例模式
-keywords: [单例模式, singleton-pattern, 设计模式]
+keywords: [单例模式, singleton-pattern]
 ---
 
 # 单例模式 (Singleton Pattern)

@@ -2,6 +2,7 @@
 id: basic-knowledge
 sidebar_position: 1
 sidebar_label: GraphQL 基础知识
+title: GraphQL基础知识介绍
 description: GraphQL 基础知识介绍
 keywords: [GraphQL, GraphQL基础知识]
 ---

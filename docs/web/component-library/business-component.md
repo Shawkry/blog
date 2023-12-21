@@ -2,6 +2,7 @@
 id: business-component
 sidebar_position: 1
 sidebar_label: 抽离业务组件
+title: 如何抽离业务组件
 description: 如何抽离业务组件
 keywords: [业务组件, 组件库, react]
 ---

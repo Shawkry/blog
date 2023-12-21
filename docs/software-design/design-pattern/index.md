@@ -2,8 +2,9 @@
 id: design-pattern
 sidebar_position: 1
 sidebar_label: 设计模式
-description: 单例模式
-keywords: [单例模式, singleton-pattern, 设计模式]
+title: 设计模式
+description: 设计模式
+keywords: [design-pattern, 设计模式]
 ---
 
 # 设计模式

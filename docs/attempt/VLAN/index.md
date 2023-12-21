@@ -2,6 +2,7 @@
 id: vlan
 sidebar_position: 1
 sidebar_label: N2N 实现虚拟局域网
+title: N2N实现虚拟局域网
 description: N2N 实现虚拟局域网
 keywords: [虚拟局域网, 游戏联机, N2N]
 ---

@@ -2,6 +2,7 @@
 id: component-library-document
 sidebar_position: 3
 sidebar_label: 实现组件库文档
+title: 基于storybook实现组件库文档
 description: 基于storybook实现组件库文档
 keywords: [组件库文档, storybook, react]
 ---

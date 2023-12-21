@@ -2,6 +2,7 @@
 id: attempt
 sidebar_position: 0
 sidebar_label: 好玩的尝试
+title: 好玩的尝试
 description: 好玩的尝试
 keywords: [好玩的尝试]
 ---

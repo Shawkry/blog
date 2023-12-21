@@ -2,8 +2,9 @@
 id: nvm
 sidebar_position: 1
 sidebar_label: 使用nvm进行node版本控制
+title: 使用nvm进行node版本控制
 description: 使用nvm进行node版本控制
-keywords: [nvm、版本控制、node]
+keywords: [nvm, 版本控制]
 ---
 
 # 使用nvm进行node版本控制

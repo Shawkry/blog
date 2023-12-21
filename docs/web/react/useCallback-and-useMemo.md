@@ -2,8 +2,9 @@
 id: useCallback-and-useMemo
 sidebar_position: 1
 sidebar_label: useCallback和useMemo性能优化
+title: useCallback和useMemo 性能优化
 description: useCallback 和 useMemo 性能优化
-keywords: [useCallback，useMemo, React性能优化]
+keywords: [React性能优化, useCallback, useMemo]
 ---
 
 # useCallback 和 useMemo 性能优化

@@ -2,8 +2,9 @@
 id: GraphQL
 sidebar_position: 1
 sidebar_label: GraphQL
+title: GraphQL介绍
 description: GraphQL介绍
-keywords: [GraphQL, GraphQL使用，GraphQL介绍]
+keywords: [GraphQL, GraphQL使用, GraphQL介绍]
 ---
 
 # GraphQL 使用入门

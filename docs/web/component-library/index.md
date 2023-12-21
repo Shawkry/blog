@@ -2,6 +2,7 @@
 id: component-library
 sidebar_position: 3
 sidebar_label: 组件库
+title: 如何搭建组件库
 description: 如何搭建组件库
 keywords: [如何搭建组件库, 组件库, react]
 ---

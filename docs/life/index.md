@@ -2,7 +2,8 @@
 id: life
 sidebar_position: 0
 sidebar_label: 生活乐趣
-description: 个人生活乐趣记录
+title: 生活乐趣记录
+description: 记录个人生活乐趣
 keywords: [个人生活乐趣记录]
 ---
 

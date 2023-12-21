@@ -2,8 +2,9 @@
 id: npm-publish
 sidebar_position: 2
 sidebar_label: npm 发布和更新
+title: npm发布和更新组件库
 description: npm 发布和更新组件库
-keywords: [npm 发布和更新组件库, npm, 组件库, react]
+keywords: [npm发布]
 ---
 
 # npm 发布和更新

@@ -2,6 +2,7 @@
 id: graphql-and-rest
 sidebar_position: 0
 sidebar_label: GraphQL 和 REST 对比
+title:  GraphQL和REST的风格对比
 description:  GraphQL 和 REST 的风格对比
 keywords: [GraphQL, REST, GraphQL和REST对比]
 ---

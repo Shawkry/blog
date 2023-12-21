@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     title: "Cloud",
-    description: "☁️ 基于 nextcloud 实现的个人网盘",
+    description: "☁️ 基于 NextCloud 实现的个人网盘",
     image: "/img/project/cloud.webp",
     website: "https://www.shawkry.top:1443/",
     //source: "http://www.shawkry.top:8088/",
@@ -43,16 +43,16 @@ export const projects: Project[] = [
   },
   {
     title: "Serialport-Tool(开发中)",
-    description: "🔌 用于调试串口的 electron 应用",
+    description: "🔌 用于调试串口的 Electron 应用",
     image: "/img/project/serialport-tool.webp",
     website: "https://github.com/Shawkry/serialport-tool",
     source: "https://github.com/Shawkry/serialport-tool",
-    tags: ["favorite", "react"],
+    tags: ["favorite", "react", "product"],
   },
   {
     title: "Rail-Transit",
     description:
-      "🚄 轨道交通大数据分析平台;获得大学生服务外包创新创业大赛国赛二等奖",
+      "🚄 轨道交通大数据分析平台；获得大学生服务外包创新创业大赛国赛二等奖",
     image: "/img/project/rail-transit.webp",
     website: "https://shawkry.top/project/rail-transport",
     source: "https://github.com/Shawkry/rail-transit",
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   {
     title: "Covid-19(不再维护)",
     description:
-      "😷 新冠疫情大数据分析可视化;获得计算机设计大赛国赛三等奖；由于疫情已成为历史，部分数据丢失",
+      "😷 疫情大数据分析；获得计算机设计大赛国赛三等奖；因疫情已成历史，部分数据丢失，故不再维护",
     image: "/img/project/covid-19.webp",
     website: "https://www.shawkry.top/project/covid-19/",
     source: "https://github.com/Shawkry/covid-19",

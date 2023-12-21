@@ -5,9 +5,11 @@ import styles from "@site/src/pages/projects/index.module.css";
 import { ShowcaseCard } from "@site/src/components/ShowcaseCard";
 import { projects } from "@site/data/project";
 import Link from "@docusaurus/Link";
+const TITLE = "开源项目";
+const DESCRIPTION = "用技术让生活变得更简单。";
 const ProjectPage = () => {
   return (
-    <Layout description="用技术让生活变得更简单。">
+    <Layout title={TITLE} description={DESCRIPTION}>
       <div className={styles.projectPage}>
         <div className={styles.header}>
           <h1>开源项目</h1>
