@@ -1,11 +1,6 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .welcome_intro {
   width: 36vw;
-  padding: 3rem 5rem 0 0;
+  padding: 8rem 0 0 0;
 }
 .welcome_intro p {
   font-size: 1.5rem;
@@ -15,6 +10,15 @@
   height: 40vw;
   /*padding-top: 1rem;*/
   /*padding-left: 10rem;*/
+}
+.svgContainer {
+  width: 12rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.svg {
+  width: 2rem;
 }
 
 .hero_title {
@@ -36,5 +40,11 @@
   }
   .welcome_intro p {
     font-size: 1.2rem;
+  }
+  .svgContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
