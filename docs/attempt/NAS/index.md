@@ -50,13 +50,13 @@ docker images
    + 使用-p参数将NextCloud容器的80端口映射到宿主机8088端口。
    + --link 创建的nextcloud容器网络连接至mariadb数据库容器。
    + 最后使用–restart=always配置Docker启动服务时nextcloud容器随之启动
-3. docker ps 检查容器是否正常启用，以及浏览器访问`http://{{云服务器公网ip}}:8080`是否正常显示界面
+3. docker ps 检查容器是否正常启用，以及浏览器访问`http://{{云服务器公网ip}}:8088`是否正常显示界面
 
 ```bash
 # 启动mariadb容器
 sudo docker run -it -d --name mariadb --env MARIADB_USER=nextcloud --env MARIADB_PASSWORD=nextcloud_123 --env MARIADB_ROOT_PASSWORD=nextcloud_123 --env MARIADB_DATABASE=nextcloud --restart=always mariadb
 # 启动nextcloud容器
-sudo docker run -it -d -p8080:80 --name nextcloud --link mariadb --restart=always nextcloud
+sudo docker run -it -d -p8088:80 --name nextcloud --link mariadb --restart=always nextcloud
 # 检查
 docker ps
 ```
@@ -94,11 +94,11 @@ docker ps
 
 ```php
 'trusted_domains' =>
-     array (
-     0 => 'IP:8080',
-     1 => 'Domain-Name',
-     2 => 'www.Domain-Name',
-     ),
+array (
+   0 => 'IP:8088',
+   1 => 'Domain-Name',
+   2 => 'www.Domain-Name',
+),
 ```
 ## 配置https
 
@@ -137,6 +137,28 @@ SSLCertificateChainFile /etc/apache2/cert/chain.crt
 ```bash
 /etc/init.d/apache2 restart
 ```
+
+## 配置视频预览缩略图
+
+Nextcloud 上传的视频本身是不能生成缩略图，需要安装 ffmepeg。
+
+1. 进入Nextcloud容器，安装ffmpeg
+```bash
+docker exec -it nextcloud bash
+apt update
+apt install ffmpeg
+```
+2. 修改 /var/www/html/config/config.php 配置文件，新增下列配置
+```
+'enable_previews' => true,
+'enabledPreviewProviders' =>
+array (
+  0 => 'OC\\Preview\\Image',
+  1 => 'OC\\Preview\\Movie',
+  2 => 'OC\\Preview\\TXT',
+)
+```
+3. 重启容器
 
 ## 好用的插件
 
