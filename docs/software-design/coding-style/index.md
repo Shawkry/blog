@@ -1,6 +1,6 @@
 ---
 id: coding-style
-sidebar_position: 3
+sidebar_position: 2
 sidebar_label: 编程风格建议
 title: 编程风格建议
 description: 编程风格建议

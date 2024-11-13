@@ -1,6 +1,6 @@
 ---
 id: nas
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: 搭建属于自己的云存储应用
 title: 搭建属于自己的云存储应用
 description: 基于nextcloud搭建属于自己的云存储应用
