@@ -154,23 +154,23 @@ MDX语法高亮编辑器插件
 
 Props属性的type与控件可选类型的定义：
 
-| props属性类型 | control控件可选类型 | 描述                                                                            | 案例                                                                                            |
-| ------------- | ------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --- |
-| boolean       | boolean             | 提供一个Switch控件切换状态。                                                    | argTypes: \{ active: \{ control: 'boolean' \}\}                                                 |
-| number        | number              | 提供一个数字输入框控件来控制，还可以给控件设置范围和步长。                      | argTypes: \{ even: \{ control: \{ type: 'number', min:1, max:30, step: 2 \} \}\}                |
-|               | range               | 提供一个Slider滑动条控件来控制数值。                                            | argTypes: \{ odd: \{ control: \{ type: 'range', min: 1, max: 30, step: 3 \} \}\}                |     |
-| object        | object              | 提供一个多行文本框，输入内容是需要满足JSON规范。                                | argTypes: \{ user: \{ control: 'object' \}\}                                                    |
-| array         | object              | 提供一个多行文本框，输入内容是需要满足JSON规范，用户输入约定输入数组。          | argTypes: \{ odd: \{ control: 'object' \}\}                                                     |
-|               | file                | 提供一个文件控件，选择后会返回文件blob URL列表，还可自定义文件类型。            | argTypes: \{ avatar: \{ control: \{ type: 'file', accept: '.png' \} \}\}                        |     |
-| enum          | radio               | 提供一个单选radio控件，通过options提供可选值。                                  | argTypes: \{ contact: \{ control: 'radio', options: \['email', 'phone', 'mail'\] \}\}           |
-|               | inline-radio        | 与radio一样，只是单选项布局是inline。                                           | argTypes: \{ contact: \{ control: 'inline-radio', options: \['email', 'phone', 'mail'\] \}\}    |     |
-|               | check               | 提供一个多选check控件，通过options提供可选值。                                  | argTypes: \{ contact: \{ control: 'check', options: \['email', 'phone', 'mail'\] \}\}           |     |
-|               | inline-check        | 与check一样，只是单选项布局是inline。                                           | argTypes: \{ contact: \{ control: 'inline-check', options: \['email', 'phone', 'mail'\] \}\}    |     |
-|               | select              | 提供一个下拉列表单选控件，通过options提供可选值。                               | argTypes: \{ age: \{ control: 'select', options: \[20, 30, 40, 50\] \}\}                        |     |
-|               | multi-select        | 提供一个下拉列表多选控件，通过options提供可选值。                               | argTypes: \{ countries: \{ control: 'multi-select', options: \['USA', 'Canada', 'Mexico'\] \}\} |     |
-| string        | text                | 提供一个文本输入框                                                              | argTypes: \{ label: \{ control: 'text' \}\}                                                     |
-|               | color               | 提供一个颜色选择器控件，用于选择颜色的字符串值，通过presetColors 提供预设可选。 | argTypes: \{ color: \{ control: \{ type: 'color', presetColors: \['red', 'green'\]\} \}\}       |     |
-|               | date                | 提供一个日期选择控件，选择一个毫秒时间戳值                                      | argTypes: \{ startDate: \{ control: 'date' \}\}                                                 |     |
+| props属性类型 | control控件可选类型 | 描述                                             | 案例                                                                                              |
+|-----------|---------------|------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| boolean   | boolean       | 提供一个Switch控件切换状态。                              | argTypes: \{ active: \{ control: 'boolean' \}\}                                                 |
+| number    | number        | 提供一个数字输入框控件来控制，还可以给控件设置范围和步长。                  | argTypes: \{ even: \{ control: \{ type: 'number', min:1, max:30, step: 2 \} \}\}                |
+|           | range         | 提供一个Slider滑动条控件来控制数值。                          | argTypes: \{ odd: \{ control: \{ type: 'range', min: 1, max: 30, step: 3 \} \}\}                |     |
+| object    | object        | 提供一个多行文本框，输入内容是需要满足JSON规范。                     | argTypes: \{ user: \{ control: 'object' \}\}                                                    |
+| array     | object        | 提供一个多行文本框，输入内容是需要满足JSON规范，用户输入约定输入数组。          | argTypes: \{ odd: \{ control: 'object' \}\}                                                     |
+|           | file          | 提供一个文件控件，选择后会返回文件blob URL列表，还可自定义文件类型。         | argTypes: \{ avatar: \{ control: \{ type: 'file', accept: '.png' \} \}\}                        |     |
+| enum      | radio         | 提供一个单选radio控件，通过options提供可选值。                  | argTypes: \{ contact: \{ control: 'radio', options: \['email', 'phone', 'mail'\] \}\}           |
+|           | inline-radio  | 与radio一样，只是单选项布局是inline。                       | argTypes: \{ contact: \{ control: 'inline-radio', options: \['email', 'phone', 'mail'\] \}\}    |     |
+|           | check         | 提供一个多选check控件，通过options提供可选值。                  | argTypes: \{ contact: \{ control: 'check', options: \['email', 'phone', 'mail'\] \}\}           |     |
+|           | inline-check  | 与check一样，只是单选项布局是inline。                       | argTypes: \{ contact: \{ control: 'inline-check', options: \['email', 'phone', 'mail'\] \}\}    |     |
+|           | select        | 提供一个下拉列表单选控件，通过options提供可选值。                   | argTypes: \{ age: \{ control: 'select', options: \[20, 30, 40, 50\] \}\}                        |     |
+|           | multi-select  | 提供一个下拉列表多选控件，通过options提供可选值。                   | argTypes: \{ countries: \{ control: 'multi-select', options: \['USA', 'Canada', 'Mexico'\] \}\} |     |
+| string    | text          | 提供一个文本输入框                                      | argTypes: \{ label: \{ control: 'text' \}\}                                                     |
+|           | color         | 提供一个颜色选择器控件，用于选择颜色的字符串值，通过presetColors 提供预设可选。 | argTypes: \{ color: \{ control: \{ type: 'color', presetColors: \['red', 'green'\]\} \}\}       |     |
+|           | date          | 提供一个日期选择控件，选择一个毫秒时间戳值                          | argTypes: \{ startDate: \{ control: 'date' \}\}                                                 |     |
 
 更多参考：https://storybook.js.org/docs/react/essentials/controls
 
