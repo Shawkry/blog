@@ -1,10 +1,10 @@
 ---
 id: strategy-pattern
-sidebar_position: 0
+sidebar_position: 1
 sidebar_label: 策略模式
 title: 策略模式
 description: 策略模式
-keywords: [策略模式, strategy-pattern]
+keywords: [策略模式, strategy-pattern, 设计模式, design-pattern]
 ---
 
 # 策略模式（Strategy Pattern）
