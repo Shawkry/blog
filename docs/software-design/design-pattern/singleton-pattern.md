@@ -17,18 +17,18 @@ keywords: [单例模式, singleton-pattern, 设计模式, design-pattern]
 2. **全局访问**：提供全局访问点，方便在不同的组件中共享实例。
 3. **控制实例数量**：避免了多个实例带来的数据不一致性问题。
 
-## 解决场景[](https://www.shawkry.top/docs/software-design/design-pattern/singleton-pattern#%E6%84%8F%E5%9B%BE%E8%A7%A3%E5%86%B3)
+## 解决场景
 
 1. 不需要使用者创造它的实例对象，直接供使用者调用
 2. 需要用一些行为进行限制，比如全局只需要一个实例（消息弹窗、购物车等）
 
-## 示例[](https://www.shawkry.top/docs/software-design/design-pattern/singleton-pattern#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8)
+## 示例
 
-### 🐨 懒汉模式单例
+### 🐨 懒汉模式单例
 
 **特点：**
 
-- 实例仅在第一次访问时创建
+- 第一次访问时才创建实例
 - 延迟加载，避免了在应用启动时不必要的内存开销
 
 ```tsx
@@ -120,7 +120,7 @@ const singleton2 = Singleton.getInstance();
 console.log('是否是相同实例', singleton1 === singleton2);
 ```
 
-### 📦 模块化模式单例（推荐）
+### 📦 模块化模式单例（推荐）
 
 **特点：**
 
