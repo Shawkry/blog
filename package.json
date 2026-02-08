@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "dev": "docusaurus start",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -15,22 +16,27 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.0.0",
-    "@docusaurus/plugin-google-gtag": "^3.0.0",
-    "@docusaurus/plugin-ideal-image": "^3.0.0",
-    "@docusaurus/preset-classic": "3.0.0",
-    "@docusaurus/theme-search-algolia": "^3.0.1",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-google-gtag": "^3.9.2",
+    "@docusaurus/plugin-ideal-image": "^3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/theme-search-algolia": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "antd": "^5.11.2",
     "clsx": "^2.0.0",
     "docusaurus-plugin-image-zoom": "^1.0.1",
+    "docusaurus-plugin-less": "^2.0.2",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
     "prettier": "^3.1.0",
     "prism-react-renderer": "^2.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "three": "^0.173.0",
+    "vanta": "^0.5.24"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.0.0",
+    "@docusaurus/module-type-aliases": "3.6.3",
     "@tsconfig/docusaurus": "^2.0.2",
     "typescript": "^5.2.2"
   },
