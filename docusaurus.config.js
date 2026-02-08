@@ -5,7 +5,7 @@ const path = require("path");
 // const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 const config = {
-  title: "Shawkry 的blog",
+  title: "Shawkry's blog",
   url: "https://shawkry.top",
   baseUrl: "/",
   favicon: "img/favicon.ico",
@@ -25,11 +25,11 @@ const config = {
       metadata: [
         {
           name: "description",
-          content: "Shawkry 的blog，用技术让生活更简单！",
+          content: "Shawkry的blog，用技术让生活更简单！",
         },
         {
           name: "keywords",
-          content: "Shawkry, 彼得潘的永无岛, 曹霄越",
+          content: "Shawkry, 彼得潘的永无岛",
         },
         {
           name: "keywords",
@@ -38,11 +38,11 @@ const config = {
         },
         {
           name: "keywords",
-          content: "博客,开源博客,编程爱好者, Web开发",
+          content: "博客, 开源博客, 编程爱好者, Web开发",
         },
       ],
       navbar: {
-        title: "Shawkry 's Blog",
+        title: "Shawkry's Blog",
         logo: {
           alt: "My Site Logo",
           src: "img/logo.svg",

@@ -1,6 +1,6 @@
 ---
 id: seo
-sidebar_position: 3
+sidebar_position: 2
 sidebar_label: 初探 SEO
 title: 个人网站的SEO实现
 description: 个人网站的 SEO 实现
